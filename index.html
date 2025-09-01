@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .slider-contant {
+            position: relative;
+            width: 90%;
+            max-width: 1400px;
+        }
+
+        .img-gal {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            overflow: hidden;
+            overflow-x: hidden;
+            gap: 5px;
+        }
+
+        .ima-slider {
+            width: 220px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .btn-icon {
+            height: 40px;
+            width: 40px;
+            color: rgb(248, 248, 248);
+            border: none;
+            background-color: rgb(88, 84, 84);
+            cursor: pointer;
+            border-radius: 50px;
+            position: absolute;
+            transform: translateY(-48%);
+            top: 48%;
+            outline: none;
+        }
+
+        #left-btn {
+            left: -20px;
+        }
+
+        #right-btn {
+            right: -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-slider">
+        <div class="slider-contant">
+            <button class="btn-icon" id="left-btn">
+                <img src="./img/arrow_back.svg" alt="">
+            </button>
+            <div class="img-gal">
+                <img src="./img/ros-1.png" alt="1" class="ima-slider">
+                <img src="./img/ros-5.png" alt="1" class="ima-slider">
+                <img src="./img/ros-3.png" alt="" class="ima-slider">
+                <img src="./img/ros-4.png" alt="" class="ima-slider">
+                <img src="./img/ros-5.png" alt="" class="ima-slider">
+                <img src="./img/ros-6.png" alt="" class="ima-slider">
+                <img src="./img/section-1.png" alt="" class="ima-slider">
+                <img src="./img/section-2.png" alt="" class="ima-slider">
+                <img src="./img/section-3.png" alt="" class="ima-slider">
+                <img src="./img/section-4.png" alt="" class="ima-slider">
+                <img src="./img/section-5.png" alt="" class="ima-slider">
+                <img src="./img/section-6.png" alt="" class="ima-slider">
+            </div>
+            <button class="btn-icon" id="right-btn">
+                <img src="./img/arrow_right.svg" alt="">
+            </button>
+        </div>
+    </div>
+    <script>
+
+        let scrollbar = document.querySelector(".img-gal");
+        let leftbtn = document.getElementById("left-btn");
+        let rightbtn = document.getElementById("right-btn");
+
+        scrollbar.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            scrollbar.style.scrollBehavior = "smooth";
+            console.log(scrollbar);
+            scrollbar.scrollLeft += e.deltaY;
+        });
+        leftbtn.addEventListener("click", function () {
+            scrollbar.style.scrollBehavior = "smooth";
+            scrollbar.scrollLeft += 520;
+
+        })
+        rightbtn.addEventListener("click", function () {
+            scrollbar.style.scrollBehavior = "smooth";
+            scrollbar.scrollLeft -= 520;
+
+        })
+
+    </script>
+</body>
+
+</html>
